@@ -406,6 +406,70 @@ footer{background:var(--navy-deepest); color:var(--cream-soft); padding:54px 0 2
   .section{padding:64px 0;}
   .contact-side{padding-left:0;}
 }
+/* Destaque Visual para Recuperação Judicial */
+.rj-highlight-box {
+  background: linear-gradient(135deg, rgba(185, 145, 91, 0.12) 0%, rgba(15, 34, 71, 0.03) 100%);
+  border: 1px solid var(--gold);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 18px 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rj-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rj-badge {
+  background: var(--gold);
+  color: var(--navy-deepest);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.rj-highlight-box p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.rj-highlight-box strong {
+  color: var(--navy-deepest);
+}
+/* Destaque do Formulário */
+.contact-form {
+  border: 1px solid transparent;
+  padding: 12px;
+  border-radius: var(--radius);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+@keyframes form-glowing-pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(185, 145, 91, 0);
+    border-color: transparent;
+  }
+  30% {
+    box-shadow: 0 0 25px rgba(185, 145, 91, 0.5);
+    border-color: var(--gold);
+    background-color: rgba(185, 145, 91, 0.05);
+  }
+  100% {
+    box-shadow: 0 0 0 0px rgba(185, 145, 91, 0);
+    border-color: transparent;
+  }
+}
+.form-glowing {
+  animation: form-glowing-pulse 1.8s ease-in-out 2;
+}
 </style>
 </head>
 <body>
@@ -457,9 +521,6 @@ footer{background:var(--navy-deepest); color:var(--cream-soft); padding:54px 0 2
       <li><a href="#faq">Dúvidas</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
-    <a class="nav__cta" href="#contato">
-      <svg class="icon"><use href="#i-chat"/></svg> Falar agora
-    </a>
     <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-label="Abrir menu">☰</button>
   </div>
   <div class="nav__mobile" id="navMobile">
@@ -468,7 +529,6 @@ footer{background:var(--navy-deepest); color:var(--cream-soft); padding:54px 0 2
     <a href="#processo">Como funciona</a>
     <a href="#faq">Dúvidas</a>
     <a href="#contato">Contato</a>
-    <a class="nav__cta" href="#contato"><svg class="icon"><use href="#i-chat"/></svg> Falar agora</a>
   </div>
 </nav>
 
@@ -481,7 +541,6 @@ footer{background:var(--navy-deepest); color:var(--cream-soft); padding:54px 0 2
         <p class="hero__lead">Estruturo operações de crédito com lastro em imóveis, áreas produtivas e recebíveis — para empresários, incorporadoras, produtores rurais e indústrias que precisam de capital sem abrir mão do que já construíram.</p>
         <div class="hero__ctas">
           <a href="#simulador" class="btn btn--gold">Simular uma operação <svg class="icon" style="stroke:var(--navy-deepest)"><use href="#i-arrow"/></svg></a>
-          <a href="#contato" class="btn btn--ghost-dark"><svg class="icon"><use href="#i-chat"/></svg> Conversar com Abnael Martins</a>
         </div>
       </div>
       <div class="hero__side">
@@ -551,7 +610,12 @@ footer{background:var(--navy-deepest); color:var(--cream-soft); padding:54px 0 2
             <div class="stat-card"><div class="stat-card__label">Taxa anual fixa</div><div class="stat-card__val">8% a 14%, sem indexadores</div></div>
             <div class="stat-card"><div class="stat-card__label">Prazo</div><div class="stat-card__val">10 a 20 anos</div></div>
           </div>
-          <p class="diff-note">Também há apetite para empresas em fase inicial ou avançada de Recuperação Judicial, desde que a operação seja economicamente viável.</p>
+          <div class="rj-highlight-box">
+            <div class="rj-badge-wrap">
+              <span class="rj-badge"><svg class="icon" style="stroke: currentColor; width: 14px; height: 14px; vertical-align: -1px; display: inline-block; fill: none;"><use href="#i-scale"/></svg> Recuperação Judicial</span>
+            </div>
+            <p>Atuação estratégica e dedicada para empresas em fase inicial ou avançada de <strong>Recuperação Judicial</strong>, desde que comprovada a viabilidade econômica da operação.</p>
+          </div>
           <button class="sim-link" data-simulate="family">Simular esta modalidade <svg class="icon" style="stroke:currentColor; width:14px; height:14px;"><use href="#i-arrow"/></svg></button>
         </div>
         <div>
@@ -670,7 +734,7 @@ footer{background:var(--navy-deepest); color:var(--cream-soft); padding:54px 0 2
     <div class="section-head on-navy reveal">
       <p class="eyebrow on-navy">Simulador</p>
       <h2>Veja uma estimativa da sua operação</h2>
-      <p>Ajuste o valor da garantia e escolha a modalidade. Os números abaixo são para se ter umaidéia — a proposta final é sempre definida caso a caso.</p>
+      <p>Ajuste o valor da garantia e escolha a modalidade. Os números abaixo são para se ter uma idéia — a proposta final é sempre definida caso a caso.</p>
     </div>
 
     <div class="sim-shell">
@@ -786,7 +850,7 @@ footer{background:var(--navy-deepest); color:var(--cream-soft); padding:54px 0 2
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Dúvidas frequentes</p>
-      <h2>Antes de falar com o Abnael</h2>
+      <h2>Antes de falar com o Representante Nacional</h2>
     </div>
     <div class="faq reveal">
       <div class="faq-item open">
@@ -818,7 +882,7 @@ footer{background:var(--navy-deepest); color:var(--cream-soft); padding:54px 0 2
   <div class="wrap">
     <div class="contact-grid">
       <div>
-        <p class="eyebrow reveal">Fale com Abnael</p>
+        <p class="eyebrow reveal">Fale direto</p>
         <h2 class="reveal" style="font-size:clamp(1.8rem,2.2vw+1rem,2.4rem); font-weight:500; margin:0 0 20px;">Conte sobre a operação que você tem em mente</h2>
         <form class="contact-form reveal" id="leadForm">
           <div class="field-row">
@@ -850,13 +914,13 @@ footer{background:var(--navy-deepest); color:var(--cream-soft); padding:54px 0 2
             <label for="lMsg">Conte um pouco sobre a garantia e o objetivo</label>
             <textarea class="input-light" id="lMsg" rows="4" placeholder="Ex: tenho um imóvel comercial avaliado em X e preciso de capital de giro..."></textarea>
           </div>
-          <button type="submit" class="btn btn--gold"><svg class="icon" style="stroke:var(--navy-deepest)"><use href="#i-chat"/></svg> Enviar para o WhatsApp do Abnael</button>
+          <button type="submit" class="btn btn--gold" style="align-self: center;"><svg class="icon" style="stroke:var(--navy-deepest)"><use href="#i-chat"/></svg> Enviar para o WhatsApp</button>
           <div class="form-msg" id="leadMsg"></div>
         </form>
       </div>
       <div class="contact-side reveal">
         <h3>Contato direto</h3>
-        <p>Prefere falar agora? Abnael atende diretamente pelo WhatsApp, sem robôs no meio do caminho.</p>
+        <p>Prefere falar agora? Atendimento direto pelo WhatsApp, sem robôs no meio do caminho.</p>
         <div class="contact-side__row"><svg class="icon"><use href="#i-chat"/></svg> <a href="#contato" style="text-decoration:none; color:var(--gold-dim); font-weight:600;">(17) 99648-2578</a></div>
         <div class="contact-side__row"><svg class="icon"><use href="#i-clock"/></svg> Retorno em até 1 dia útil</div>
         <div class="callout" style="margin-top:24px;"><svg class="icon"><use href="#i-scale"/></svg> Abnael Martins atua como representante comercial independente dessas operações. Toda operação está sujeita à análise e aprovação de crédito por parte do fundo ou instituição financiadora responsável, sem garantia prévia de aprovação.</div>
@@ -1113,6 +1177,37 @@ leadForm.addEventListener('submit', (e) => {
   leadMsg.className = 'form-msg show ok';
   leadForm.reset();
 });
+
+/* Trigger highlight animation on contact form when targeted */
+function highlightContactForm() {
+  const form = document.getElementById('leadForm');
+  if (form) {
+    form.classList.remove('form-glowing');
+    void form.offsetWidth; // Trigger reflow to restart animation
+    form.classList.add('form-glowing');
+    setTimeout(() => {
+      form.classList.remove('form-glowing');
+    }, 3600);
+  }
+}
+
+document.querySelectorAll('a[href="#contato"]').forEach(link => {
+  link.addEventListener('click', () => {
+    setTimeout(highlightContactForm, 600);
+  });
+});
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#contato') {
+    setTimeout(highlightContactForm, 600);
+  }
+});
+
+if (window.location.hash === '#contato') {
+  window.addEventListener('load', () => {
+    setTimeout(highlightContactForm, 800);
+  });
+}
 </script>
 </body>
 </html>
